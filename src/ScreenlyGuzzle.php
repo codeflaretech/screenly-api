@@ -1,4 +1,4 @@
-<?php namespace ScreenlyAPI\traits;
+<?php namespace ScreenlyApi;
 
 use GuzzleHttp\Client;
 

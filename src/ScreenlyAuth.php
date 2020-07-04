@@ -1,11 +1,9 @@
-<?php namespace ScreenlyAPI;
-
-use ScreenlyAPI\traits\ScreenlyGuzzle;
+<?php namespace ScreenlyApi;
 
 class ScreenlyAuth
 {
     use ScreenlyGuzzle;
-    
+
     /**
      * Screenly account username
      * @var array|false|string|null
