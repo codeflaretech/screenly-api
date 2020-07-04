@@ -1,6 +1,6 @@
 <?php namespace ScreenlyApi;
 
-class ScreenlyAuth
+class ScreenlyToken
 {
     use ScreenlyGuzzle;
 
@@ -8,13 +8,13 @@ class ScreenlyAuth
      * Screenly account username
      * @var array|false|string|null
      */
-    protected $username = null;
+    private $username;
     
     /**
      * Screenly account password
      * @var array|false|string|null
      */
-    protected $password = null;
+    private $password;
     
     /**
      * name returned from token request
@@ -48,13 +48,6 @@ class ScreenlyAuth
     public $url = null;
     
     /**
-     * Error message from Guzzle requests
-     *
-     * @var null
-     */
-    public $errorMessage = null;
-    
-    /**
      * get username and password from config file
      *
      * ScreenlyAPI constructor.
@@ -70,9 +63,9 @@ class ScreenlyAuth
      * Authenticate and get access token
      * @return array|null
      */
-    public function authenticate()
+    public function get()
     {
-        $token = $this->getToken();
+        $token = $this->retrieveToken();
         
         $this->name = $token['name'];
         $this->scope = $token['scope'];
@@ -87,7 +80,7 @@ class ScreenlyAuth
      * Get an access token from Screenly
      * @return bool|mixed
      */
-    public function getToken()
+    public function retrieveToken()
     {
         $verb = 'POST';
         $endpoint = 'https://api.screenlyapp.com/api/v3/tokens/';
