@@ -1,6 +1,6 @@
-<?php namespace ScreenlyAPI;
+<?php namespace ScreenlyAPI\traits;
 
-use GuzzleHttp;
+use GuzzleHttp\Client;
 
 trait ScreenlyGuzzle
 {

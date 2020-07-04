@@ -1,6 +1,6 @@
 <?php namespace ScreenlyAPI;
 
-use ScreenlyAPI\ScreenlyGuzzle;
+use ScreenlyAPI\traits\ScreenlyGuzzle;
 
 class ScreenlyAuth
 {
@@ -106,6 +106,6 @@ class ScreenlyAuth
                 'body' => $request_data,
         ];
         
-        return sendRequest($verb, $endpoint, $options);
+        return $this->sendRequest($verb, $endpoint, $options);
     }
 }
