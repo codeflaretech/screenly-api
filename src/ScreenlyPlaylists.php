@@ -1,6 +1,6 @@
 <?php namespace ScreenlyApi;
 
-class ScreenlyAssets
+class ScreenlyPlaylists
 {
     use ScreenlyGuzzle;
     
@@ -34,14 +34,14 @@ class ScreenlyAssets
     {
         $this->token = $token;
         
-        $this->endpoint = 'https://api.screenlyapp.com/api/v3/assets/';
+        $this->endpoint = 'https://api.screenlyapp.com/api/v3/playlists/';
         
         $this->headers[ 'Authorization' ] = 'Token ' . $token;
         $this->headers[ 'Content-Type' ] = 'application/json';
     }
     
     /**
-     * Get list of assets
+     * Get list of playlists
      *
      * @return bool|mixed
      */
@@ -71,6 +71,7 @@ class ScreenlyAssets
         
         $options = [
                 'headers' => $headers,
+        
         ];
         
         return $this->sendRequest($verb, $endpoint, $options);
@@ -105,7 +106,7 @@ class ScreenlyAssets
                 'headers' => $headers,
                 'body' => $request_data,
         ];
-        
+    
         return $this->sendRequest($verb, $endpoint, $options);
     }
     
@@ -119,13 +120,14 @@ class ScreenlyAssets
     {
         $verb = 'DELETE';
         $endpoint = $this->endpoint . $id . '/';
-        
+    
         $headers = $this->headers;
-        
+    
         $options = [
                 'headers' => $this->headers,
         ];
-        
+    
         return $this->sendRequest($verb, $endpoint, $options);
     }
+    
 }
